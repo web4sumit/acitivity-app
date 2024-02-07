@@ -1,0 +1,5 @@
+$font-path:"/assets/fonts";
+
+@include font-face(Metropolis, "#{$font-path}Metropolis-Regular", normal, normal);
+@include font-face(Metropolis-Medium, "#{$font-path}Metropolis-Medium", normal, normal);
+@include font-face(Metropolis-Bold, "#{$font-path}Metropolis-Bold", bold, normal);

@@ -1,0 +1,317 @@
+@import "./style/_mixin.scss";
+@import "./style/_variables.scss";
+
+.topBar {
+    @include flexBetween(space-between, center);
+    padding: 1.875rem 1.563rem;
+
+    .backArrow {
+        @include square(60px);
+        background: $antiflashwhite;
+        border-radius: 50%;
+
+        &:first-child {
+            @include flexCenter;
+        }
+    }
+}
+
+.tracker {
+
+    h2 {
+        @include toRem(font-size, 36);
+        @include toRem(margin-bottom, 20);
+        font-family: $font-bold;
+        font-weight: bold;
+        color: $darkcharcoal;
+        padding: 0 1.563rem;
+    }
+
+    .buttonGroup {
+        @include flexBetween;
+        @include toRem(padding-bottom, 36);
+        gap: 1rem;
+        overflow-x: scroll;
+        padding-left: 1.563rem;
+
+        button {
+            @include button;
+            @include toRem(font-size, 20);
+            font-family: $font-bold;
+            white-space: nowrap;
+
+            &:nth-child(1) {
+                background: $giantsorange;
+                color: $primary;
+            }
+
+            &:nth-child(2) {
+                background: $antiflashwhite;
+                color: $darkgray;
+            }
+        }
+    }
+}
+
+.cardWraper {
+    @include toRem(margin-bottom, 35);
+    @include toRem(margin-top, 30);
+    padding: 0 5px;
+    width: 100%;
+    position: relative;
+
+    &::before {
+        content: "";
+        width: 90%;
+        @include toRem(height, 225);
+        background-color: $mistyrose;
+        position: absolute;
+        top: -30px;
+        transform: translateX(-50%);
+        left: 50%;
+        border-radius: 30px;
+    }
+
+    &::after {
+        content: "";
+        width: 93%;
+        @include toRem(height, 225);
+        background-color: $deeppeach;
+        position: absolute;
+        top: -15px;
+        transform: translateX(-50%);
+        left: 50%;
+        border-radius: 30px;
+    }
+
+    .card {
+        border-radius: 40px;
+        background: $darkcharcoal;
+        position: relative;
+        z-index: 3;
+
+        .shadow {
+            position: absolute;
+            box-shadow: 0 15px 30px $darkcharcoal;
+            width: 80%;
+            height: 30px;
+            transform: translateX(-50%);
+            left: 50%;
+            border-radius: 50%;
+            bottom: 0;
+            z-index: -1;
+        }
+
+        img {
+            position: absolute;
+            top: -10px;
+            right: -3px;
+            @media screen and (max-width: 400px){
+                   top: 21px;
+                   width: 68%;
+               }
+        }
+      
+
+        .textArea {
+            @include toRem(width, 140);
+            height: 100%;
+            padding: 35px 0 15px 25px;
+
+            span {
+                @include toRem(font-size, 13);
+                @include toRem(margin-bottom, 5);
+                color: $coral;
+            }
+
+            h2 {
+                @include toRem(font-size, 26);
+                @include toRem(margin-bottom, 70);
+                font-weight: bold;
+                color: $primary;
+            }
+
+            p {
+                @include toRem(margin-bottom, 35);
+                @include toRem(font-size, 12);
+                color: $darkgray;
+            }
+
+            button {
+                border: none;
+                outline: none;
+                border-radius: 30px;
+                font-weight: bold;
+                cursor: pointer;
+                padding: 14px 40px 15px;
+                background-color: $giantsorange;
+                color: $primary;
+                margin-left: -10px;
+            }
+        }
+    }
+}
+
+
+.activities {
+    padding: 0 1.25rem;
+    @include toRem(margin-bottom, 35);
+
+    .wrapper {
+        @include flexBetween;
+        gap: 1rem;
+
+        .circle {
+            @include toRem(height, 201);
+            border-radius: 45px;
+            background: $darkcharcoal;
+
+            .progressBar {
+                position: relative;
+                width: 130px;
+                height: 130px;
+                margin: 30px auto 25px auto;
+
+                svg {
+                    width: 130px;
+                    height: 130px;
+                }
+
+                .bg {
+                    fill: none;
+                    stroke-width: 15px;
+                    stroke: #393939;
+                }
+
+                .progress {
+                    fill: none;
+                    stroke-width: 15px;
+                    stroke: $giantsorange;
+                    stroke-linecap: round;
+                    stroke-dasharray: 180;
+                    stroke-dashoffset: 60;
+                    transform: rotate(-40deg);
+                    transform-origin: 50% 50%;
+                    animation: big 1.5s ease-in-out;
+                }
+
+                .text {
+                    position: absolute;
+                    width: 100%;
+                    // top: 37px;
+                    font-size: 24px;
+                    text-align: center;
+                    font-weight: 400;
+                    line-height: 14px;
+                    color: $primary;
+
+                    .small {
+                        font-size: 14px;
+                        color: $coral;
+                    }
+                }
+            }
+        }
+
+        div {
+            @include flexCenter;
+            width: 50%;
+            flex-direction: column;
+            gap: 1rem;
+
+            .activity {
+                background: $seashell;
+                @include button;
+                padding: 20PX 0 23PX;
+                border-radius: 55px;
+                width: 100%;
+                gap: 0;
+                cursor: inherit;
+
+                span {
+                    &:nth-child(1) {
+                        color: $coral;
+                        @include toRem(font-size, 13);
+                    }
+
+                    &:nth-child(2) {
+                        color: $darkcharcoal;
+                        @include toRem(font-size, 20);
+                    }
+                }
+            }
+        }
+
+    }
+}
+
+.formSection {
+    padding: 40px 20px;
+    background: $giantsorange;
+    border-radius: 50px 50px 0 0;
+
+    h3 {
+        color: $primary;
+        font-size: 1.25rem;
+        @include toRem(padding-left, 10);
+        @include toRem(margin-bottom, 15);
+        font-family: $font-medium;
+    }
+
+    .formControl {
+        @include toRem(margin-bottom, 10);
+        display: flex;
+        gap: 10px;
+        position: relative;
+
+
+        input {
+            @include inputStyle(100%, 1rem 1.5rem, $primary, none);
+            border-radius: 2.5rem;
+            height: 3.1rem;
+            font-size: 0.9rem;
+
+            &::placeholder {
+                font-size: 0.9rem;
+                font-weight: bolder;
+            }
+        }
+
+        select {
+            border: none;
+            outline: none;
+            border-radius: 2.5rem;
+            height: 3.1rem;
+            width: 100%;
+            padding: 1rem 1.5rem;
+            font-size: 0.9rem;
+            font-weight: bolder;
+            color: $darkcharcoal;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+
+            >option {
+                width: 100%;
+                font-size: 0.9rem;
+                font-weight: bolder;
+                color: $darkcharcoal;
+            }
+        }
+
+        span {
+            position: absolute;
+            top: 14px;
+            right: 24px;
+        }
+    }
+
+    button {
+        @include toRem(margin-top, 5);
+        @include button;
+        width: 100%;
+        background: $darkcharcoal;
+        color: $primary;
+    }
+
+}

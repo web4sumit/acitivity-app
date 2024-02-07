@@ -1,0 +1,27 @@
+@import "mixin";
+@import "font";
+@import "variables";
+
+
+
+:root {
+    line-height: 1.5;
+    font-weight: 400;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    background: $darkcharcoal;
+    font-family: $font-regular;
+}
+
+.main {
+    background-color: #fff;
+    margin: auto;
+}
